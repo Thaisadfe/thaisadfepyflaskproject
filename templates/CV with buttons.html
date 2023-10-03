@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Sales Experience</title>
+    <style>
+      body {
+        font-family: Verdana, sans-serif;
+      }
+      h1 {
+        color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Sales Experience</h1>
+    <p id="summary">Click the button to view the Summary.</p>
+    <button onclick="showSummary()">Summary</button>
+    <button onclick="hideSummary()">Close Summary</button>
+
+    <h1>Work Experience</h1>
+    <p id="work-experience">Click the button to view the Work Experience.</p>
+    <button onclick="showWorkExperience()">Work Experience</button>
+    <button onclick="hideWorkExperience()">Close Work Experience</button>
+
+    <script>
+      function showSummary() {
+        var summaryText = "Experienced in Sales, I have had the opportunity to work in different companies where I gained experience closing deals, managing the whole sales cycle, and handling difficult negotiations with C-level executives.";
+        document.getElementById("summary").innerHTML = summaryText;
+      }
+
+      function hideSummary() {
+        document.getElementById("summary").innerHTML = "Click the button to view the Summary.";
+      }
+
+      function showWorkExperience() {
+        var workExperienceText = "<ul><li>Account Executive at <a href='https://slack.com/intl/en-ie/'>Slack</a></li><li>Account Manager at <a href='https://www.wrike.com/'>Wrike</a></li><li>Account Executive at <a href='https://www.wrike.com/'>Wrike</a></li><li>SDR at <a href='https://www.wrike.com/'>Wrike</a></li></ul>";
+        document.getElementById("work-experience").innerHTML = workExperienceText;
+      }
+
+      function hideWorkExperience() {
+        document.getElementById("work-experience").innerHTML = "Click the button to view the Work Experience.";
+      }
+    </script>
+  </body>
+</html>

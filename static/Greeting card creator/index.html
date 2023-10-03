@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Greeting Card Creator</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Greeting Card Creator</h1>
+    <form id="cardForm">
+      <label for="recipientName">Recipient's Name:</label>
+      <input type="text" id="recipientName" placeholder="Enter recipient's name" required>
+
+      <br><br>
+
+      <label for="occasionSelect">Occasion:</label>
+      <select id="occasionSelect" onchange="generateTemplate()">
+        <option value="">Select an occasion</option>
+        <option value="Christmas">Christmas</option>
+        <option value="Birthday">Birthday</option>
+      </select>
+
+      <br><br>
+
+      <label for="previewBox">Occasion Preview:</label>
+      <textarea id="previewBox" rows="4" cols="50" readonly></textarea>
+
+
+      <label for="message">Message:</label>
+      <textarea id="message" placeholder="Enter your message" required></textarea>
+
+      <button type="submit">Create Card</button>
+
+      
+    </form>
+
+    <div id="cardPreview">
+      <!-- Greeting card preview will be displayed here -->
+    </div>
+
+    <button id="buyButton">Buy Card</button>
+  </div>
+
+
+  <script src="javapart.js"></script>
+
+
+</body>
+
+<footer>
+  <p>&copy; 2023 Greeting Card Creator by Thaisa Elorriaga. All rights reserved.</p>
+</footer>
+
+</html>

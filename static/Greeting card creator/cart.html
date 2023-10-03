@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <link rel="stylesheet" type="text/css" href="cartcss.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cart</h1>
+
+    <div class="cart-item">
+      <h3>Birthday</h3>
+      <p>Price: $10 (including delivery)</p>
+      <button class="add-to-cart" data-price="10">Add to Cart</button>
+      <button class="remove-from-cart" data-price="-10">Remove from Cart</button>
+    </div>
+    
+
+    <div class="cart-item">
+      <h3>Christmas</h3>
+      <p>Price: $15 (including delivery)</p>
+      <button class="add-to-cart" data-price="15">Add to Cart</button>
+      <button class="remove-from-cart" data-price="-15">Remove from Cart</button>
+    </div>
+
+    <div class="cart-item">
+      <h3>My card</h3>
+      <p>Price: $20 (including delivery)</p>
+      <button class="add-to-cart" data-price="20">Add to Cart</button>
+      <button class="remove-from-cart" data-price="-20">Remove from Cart</button>
+    </div>
+
+    <div class="cart-total">
+      Total: $<span id="totalPrice">0</span>
+    </div>
+
+    <button class="cart-button">Proceed to Checkout</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Greeting Card Creator by Thaisa Elorriaga. All rights reserved.</p>
+  </footer>
+
+  <script src="javaforcart.js"></script>
+</body>
+
+</html>

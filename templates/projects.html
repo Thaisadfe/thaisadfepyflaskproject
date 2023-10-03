@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style2test.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="Resumecv.html">Resume/CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+    <br>
+    
+    <section>
+        <div class="project-filters">
+            <label for="project-type">Filter by Project Type:</label>
+            <select id="project-type">
+                <option value="all">All Projects</option>
+                <option value="cv">CVs</option>
+                <option value="web">Web</option>
+            </select>
+        </div>
+    </section>
+
+    <br>
+
+    <!-- CV -->
+
+    <section id="project-details-cv">
+        <h1>Project: CV With Buttons</h1>
+        <p>
+            CV with buttons was a simple HTML project I created for my first project at UCD using HTML and a bit of CSS
+            in-line. I used buttons to make it a bit more fun.</p>
+        </p>
+        <br>
+        <h2>Project Screenshots:</h2>
+        <div class="project-screenshots">
+            <img src="../static/cvwithb1.jpeg" alt="Project 1 Screenshot 1" class="project-screenshot">
+            <img src="../static/cvwithb2.jpeg" alt="Project 1 Screenshot 2" class="project-screenshot">
+
+            <a href="CV with buttons.html" class="cta-button" target="_blank">Check it out</a>
+
+        </div>
+    </section>
+
+    <br><br>
+
+    <!-- GiFT Card Creator -->
+
+    <section id="project-details-web">
+        <h1>Project: Gift Card Creator</h1> <br>
+        <p> <br>
+            Gift Card Creator was a simple project I created for my js project at UCD using HTML Js and CSS. The page
+            allows you to create your own Gift Card by topic, add the gift card in the cart and fill out a form for
+            payment</p>
+        </p>
+        <br> <br>
+        <h2>Project Screenshots:</h2> <br>
+        <div class="project-screenshots">
+            <img src="../static/Greeting card creator/greetingcardccreator.jpeg" alt="Project 1 Screenshot 1"
+                class="project-screenshot">
+
+            <a href="../static/Greeting card creator/index.html" class="cta-button" target="blank">Check it out</a>
+
+        </div>
+    </section>
+
+    <section id="contact-me">
+        <h2>Contact Me</h2>
+        <p>
+            Feel free to get in touch with me. You can reach me at <a href="mailto:thaisadfe@gmail.com"
+                class="cta-button">thaisadfe@gmail.com</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Thaisa DFE</p>
+    </footer>
+
+    <script>
+        // Get references to the select element and the project sections
+        const projectTypeSelect = document.getElementById('project-type');
+        const cvSection = document.getElementById('project-details-cv');
+        const webSection = document.getElementById('project-details-web');
+
+        // Add an event listener to the select element
+        projectTypeSelect.addEventListener('change', function () {
+            const selectedValue = projectTypeSelect.value;
+
+            // Show or hide the CV and Web sections based on the selected option
+            if (selectedValue === 'all') {
+                cvSection.style.display = 'block';
+                webSection.style.display = 'block';
+            } else if (selectedValue === 'cv') {
+                cvSection.style.display = 'block';
+                webSection.style.display = 'none';
+            } else if (selectedValue === 'web') {
+                cvSection.style.display = 'none';
+                webSection.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

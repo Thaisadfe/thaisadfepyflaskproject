@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
 
     <br>
     <br>
-    
+
     <section>
         <div class="project-filters">
             <label for="project-type">Filter by Project Type:</label>
@@ -37,46 +38,30 @@
 
     <br>
 
-    <!-- CV -->
+    <!-- Dynamic content for projects using the projects list -->
+{% for project in projects %}
+<section id="project-details-{{ project['project_type'] }}">
+    <h1>{{ project['title'] }}</h1>
+    <p>
+        {{ project['description'] }}
+    </p>
 
-    <section id="project-details-cv">
-        <h1>Project: CV With Buttons</h1>
-        <p>
-            CV with buttons was a simple HTML project I created for my first project at UCD using HTML and a bit of CSS
-            in-line. I used buttons to make it a bit more fun.</p>
-        </p>
-        <br>
-        <h2>Project Screenshots:</h2>
-        <div class="project-screenshots">
-            <img src="../static/cvwithb1.jpeg" alt="Project 1 Screenshot 1" class="project-screenshot">
-            <img src="../static/cvwithb2.jpeg" alt="Project 1 Screenshot 2" class="project-screenshot">
+    <br>
 
-            <a href="CV with buttons.html" class="cta-button" target="_blank">Check it out</a>
+    <h2>Project Screenshots:</h2>
+    <div class="project-screenshots">
+        <!-- Loop through project screenshots and display them -->
+        {% for screenshot in project['screenshots'] %}
+            <img src="{{ screenshot }}" alt="Project Screenshot" class="project-screenshot">
+        {% endfor %}
 
-        </div>
-    </section>
+        <a href="{{ project['link'] }}" class="cta-button" target="_blank">Check it out</a>
+    </div>
+</section>
+<br><br>
+{% endfor %}
+<!-- End of dynamic content for projects -->
 
-    <br><br>
-
-    <!-- GiFT Card Creator -->
-
-    <section id="project-details-web">
-        <h1>Project: Gift Card Creator</h1> <br>
-        <p> <br>
-            Gift Card Creator was a simple project I created for my js project at UCD using HTML Js and CSS. The page
-            allows you to create your own Gift Card by topic, add the gift card in the cart and fill out a form for
-            payment</p>
-        </p>
-        <br> <br>
-        <h2>Project Screenshots:</h2> <br>
-        <div class="project-screenshots">
-            <img src="../static/Greeting card creator/greetingcardccreator.jpeg" alt="Project 1 Screenshot 1"
-                class="project-screenshot">
-
-            <a href="../static/Greeting card creator/index.html" class="cta-button" target="blank">Check it out</a>
-
-        </div>
-    </section>
 
     <section id="contact-me">
         <h2>Contact Me</h2>
@@ -113,6 +98,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>

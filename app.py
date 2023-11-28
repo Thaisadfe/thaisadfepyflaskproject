@@ -1,7 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
 from data import projects  # Import the projects list from data.py
 
 app = Flask(__name__)
+
+# Configure the SQLAlchemy database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Fernandes13$@localhost/tdfe'
+
+# Initialize the SQLAlchemy class with the Flask app
+db = SQLAlchemy(app)
+
+# Define your database models
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '<User %r>' % self.username
 
 # Define routes
 @app.route('/')
@@ -10,7 +26,7 @@ def home():
 
 @app.route('/projects')
 def projects_page():
-    return render_template('projects.html', projects=projects)  # Pass the projects list to the template
+    return render_template('projects.html', projects=projects)
 
 @app.route('/Resume/CV')
 def resume():
@@ -23,14 +39,14 @@ def about():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        # Handle form submission here (e.g., save data to a database)
         # Retrieve form data from request.form
-        full_name = request.form['full-name']
+        username = request.form['full-name']  # Using full-name as username
         email = request.form['email']
-        phone = request.form['phone']
-        message = request.form['message']
-        
-        # Process the form data as needed (e.g., save it to a database)
+        # Create a new User object
+        new_user = User(username=username, email=email)
+        # Add the new user to the session and commit to the database
+        db.session.add(new_user)
+        db.session.commit()
 
         # Redirect to a success page or return a success response
         return redirect(url_for('success'))
@@ -44,3 +60,4 @@ def success():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
+
